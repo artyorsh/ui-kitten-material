@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "jsx": "react",
+    "resolveJsonModule": true,
+    "sourceMap": true,
+    "experimentalDecorators": true,
+    "lib": ["es6"],
+    "moduleResolution": "node",
+    "strict": true,
+    "noImplicitAny": false,
+    "target": "esnext",
+    "skipLibCheck": true,
+    "typeRoots": [
+      "./node_modules/@types"
+    ],
+    "paths": {
+      "react-native-ui-kitten/*": ["../react-native-ui-kitten/src/framework"],
+      "@kitten/*": ["../react-native-ui-kitten/src/framework/*"],
+      "@eva-design/*": ["../eva/packages/*"]
+    }
+  },
+  "exclude": [
+    "./node_modules",
+    "./babel.config.js",
+    "./metro.config.js"
+  ]
+}

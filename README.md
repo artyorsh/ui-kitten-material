@@ -7,4 +7,8 @@
 ```bash
 git checkout package/material
 ```
+- Go to `react-native-ui-kitten` directory and switch branch to `refactor/eva-state-colors` (this should be done untill UI Kitten 4.3 released):
+```bash
+git checkout refactor/eva-state-colors
+```
 - `npm start`

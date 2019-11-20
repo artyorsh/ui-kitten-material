@@ -18,6 +18,7 @@ import { ImageOverlay } from '../../components/image-overlay.component';
 import {
   EyeIcon,
   EyeOffIcon,
+  EmailIcon,
 } from '../../assets/icons';
 import {
   SignInData,
@@ -61,6 +62,7 @@ export const SignInScreen = (props) => {
         label='Email'
         keyboardType='email-address'
         autoCapitalize='none'
+        icon={EmailIcon}
       />
       <FormInput
         id='password'

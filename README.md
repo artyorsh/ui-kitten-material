@@ -11,4 +11,15 @@ git checkout package/material
 ```bash
 git checkout refactor/eva-state-colors
 ```
-- `npm start`
+
+```bash
+cd ios && pod install && cd ../
+```
+
+- `npm run start:ios:eva`
+- or
+- `npm run start:ios:material`
+- or
+- `npm run start:android:eva`
+- or
+- `npm run start:android:material`

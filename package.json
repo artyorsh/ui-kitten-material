@@ -4,8 +4,10 @@
   "private": true,
   "scripts": {
     "start": "react-native start",
-    "start:ios": "react-native run-ios",
-    "start:android": "react-native run-android"
+    "start:ios:eva": "ENVFILE=.env.eva react-native run-ios",
+    "start:ios:material": "ENVFILE=.env.material react-native run-ios",
+    "start:android:eva": "ENVFILE=.env.eva react-native run-android",
+    "start:android:material": "ENVFILE=.env.material react-native run-android"
   },
   "dependencies": {
     "@eva-design/eva": "^1.2.0",
@@ -13,6 +15,7 @@
     "formik": "^2.0.4",
     "react": "16.8.6",
     "react-native": "0.60.5",
+    "react-native-config": "^0.12.0",
     "react-native-gesture-handler": "^1.5.0",
     "react-native-reanimated": "^1.4.0",
     "react-native-safe-area-context": "^0.6.0",

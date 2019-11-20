@@ -4,6 +4,7 @@ import {
   Tab,
   TabBar,
 } from 'react-native-ui-kitten';
+import Config from 'react-native-config';
 import { AppRoute } from '../../navigation/app-routes';
 import {
   SafeAreaLayout,
@@ -21,6 +22,7 @@ import {
   LogoutIcon,
   MenuIcon,
 } from '../../assets/icons';
+import { capitalizeFirstLetter } from '../../helpers';
 
 export const TodoScreen = (props): SafeAreaLayoutElement => {
 
@@ -50,7 +52,7 @@ export const TodoScreen = (props): SafeAreaLayoutElement => {
   return (
     <SafeAreaLayout insets={SaveAreaInset.TOP}>
       <Toolbar
-        title='Material App'
+        title={`${capitalizeFirstLetter(Config.DESIGN_SYSTEM)} App`}
         onMenuItemSelect={onMenuItemSelect}
         menu={menu}
         backIcon={MenuIcon}

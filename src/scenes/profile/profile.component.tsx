@@ -9,6 +9,7 @@ import {
   Layout,
   Text,
 } from 'react-native-ui-kitten';
+import Config from 'react-native-config';
 import { Toolbar } from '../../components/toolbar.component';
 import {
   SafeAreaLayout,
@@ -17,6 +18,7 @@ import {
 } from '../../components/safe-area-layout.component';
 import { MenuIcon } from '../../assets/icons';
 import { ProfileData } from '../../data/profile.model';
+import { capitalizeFirstLetter } from '../../helpers';
 
 const profile: ProfileData = ProfileData.mocked();
 
@@ -25,7 +27,7 @@ export const ProfileScreen = (props): SafeAreaLayoutElement => (
     style={styles.safeArea}
     insets={SaveAreaInset.TOP}>
     <Toolbar
-      title='Material App'
+      title={`${capitalizeFirstLetter(Config.DESIGN_SYSTEM)} App`}
       backIcon={MenuIcon}
       onBackPress={props.navigation.toggleDrawer}
     />

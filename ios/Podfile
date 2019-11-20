@@ -29,6 +29,9 @@ target 'MyApp' do
 
 
 
+
+  pod 'react-native-config', :path => '../node_modules/react-native-config'
+
   target 'MyAppTests' do
     inherit! :search_paths
     # Pods for testing

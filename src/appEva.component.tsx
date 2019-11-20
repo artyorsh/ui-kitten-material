@@ -5,29 +5,27 @@ import {
 } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import {
-  dark,
-  light,
-  mapping,
-} from '@eva-design/material';
+  dark as evaDark,
+  light as evaLight,
+  mapping as evaMapping,
+} from '@eva-design/eva';
 import {
   ApplicationProvider,
   IconRegistry,
 } from 'react-native-ui-kitten';
+import { EvaIconsPack } from '@ui-kitten/eva-icons'
 import { AppNavigator } from './navigation/app.navigator';
 import {
   AppTheme,
   ThemeContext,
 } from './theme/theme-context';
-import { MaterialIconsPack } from './assets/material-icons-pack';
 
-const themes = { light, dark };
-const strictTheme = { 'text-font-family': 'roboto-regular' };
-const customMapping = { strict: strictTheme };
+const evaThemes = { light: evaLight, dark: evaDark };
 
 export default (): React.ReactFragment => {
 
   const [theme, setTheme] = React.useState<AppTheme>(AppTheme.light);
-  const { [theme]: currentTheme } = themes;
+  const { [theme]: currentTheme } = evaThemes;
 
   const isDarkMode = (): boolean => {
     return theme === AppTheme.dark;
@@ -39,11 +37,10 @@ export default (): React.ReactFragment => {
 
   return (
     <React.Fragment>
-      <IconRegistry icons={MaterialIconsPack}/>
+      <IconRegistry icons={EvaIconsPack}/>
       <ApplicationProvider
-        mapping={mapping}
-        theme={currentTheme}
-        customMapping={customMapping}>
+        mapping={evaMapping}
+        theme={currentTheme}>
         <SafeAreaProvider>
           <ThemeContext.Provider value={{ theme, setTheme, isDarkMode }}>
             <AppNavigator/>

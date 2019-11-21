@@ -21,7 +21,7 @@ import {
 import { MaterialIconsPack } from './assets/material-icons-pack';
 
 const themes = { light, dark };
-const strictTheme = { 'text-font-family': 'roboto-regular' };
+const strictTheme = { 'text-font-family': 'Roboto-Medium' };
 const customMapping = { strict: strictTheme };
 
 export default (): React.ReactFragment => {
@@ -33,10 +33,6 @@ export default (): React.ReactFragment => {
     return theme === AppTheme.dark;
   };
 
-  if (Platform.OS === 'android') {
-    StatusBar.setBackgroundColor(currentTheme['color-primary-700']);
-  }
-
   return (
     <React.Fragment>
       <IconRegistry icons={MaterialIconsPack}/>
@@ -46,6 +42,7 @@ export default (): React.ReactFragment => {
         customMapping={customMapping}>
         <SafeAreaProvider>
           <ThemeContext.Provider value={{ theme, setTheme, isDarkMode }}>
+            <StatusBar backgroundColor={currentTheme['color-primary-700']} />
             <AppNavigator/>
           </ThemeContext.Provider>
         </SafeAreaProvider>

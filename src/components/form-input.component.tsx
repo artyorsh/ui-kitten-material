@@ -9,12 +9,13 @@ import {
   useFormikContext,
 } from 'formik';
 import { AlertTriangleIcon } from '../assets/icons';
+import { Platform, StyleSheet } from "react-native";
 
 interface FormInputProps extends InputProps {
   id: string;
 }
 
-export const FormInput = ({ id, ...inputProps }: FormInputProps): InputElement => {
+export const FormInput = ({ id, textStyle, ...inputProps }: FormInputProps): InputElement => {
 
   const formContext: FormikContextType<{}> = useFormikContext();
 
@@ -30,9 +31,17 @@ export const FormInput = ({ id, ...inputProps }: FormInputProps): InputElement =
     <Input
       {...inputProps}
       {...fieldProps}
+      textStyle={[textStyle, styles.element]}
       caption={error}
       onChangeText={formContext.handleChange(id)}
     />
   );
 };
+
+const styles = StyleSheet.create({
+  element: Platform.select({
+    ios: null,
+    android: { paddingVertical: 0 },
+  })
+});
 

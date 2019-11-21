@@ -10,6 +10,7 @@ module.exports = {
       ...extraNodeModules,
       '@babel/runtime': path.resolve(__dirname, './node_modules/@babel/runtime'),
       'react': path.resolve(__dirname, './node_modules/react'),
+      'react-native': path.resolve(__dirname, './node_modules/react-native'),
       'react-is': path.resolve(__dirname, './node_modules/react-is'),
     },
   },

@@ -1,5 +1,9 @@
 import React from 'react';
 import {
+  Platform,
+  StyleSheet,
+} from 'react-native';
+import {
   Input,
   InputElement,
   InputProps,
@@ -9,7 +13,6 @@ import {
   useFormikContext,
 } from 'formik';
 import { AlertTriangleIcon } from '../assets/icons';
-import { Platform, StyleSheet } from "react-native";
 
 interface FormInputProps extends InputProps {
   id: string;

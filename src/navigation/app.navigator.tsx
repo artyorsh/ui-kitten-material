@@ -6,8 +6,8 @@ import { AppRoute } from './app-routes';
 import { createAppContainer } from "react-navigation";
 
 const AppStack = createStackNavigator({
-  [AppRoute.AUTH]: AuthNavigator,
   [AppRoute.HOME]: HomeNavigator,
+  [AppRoute.AUTH]: AuthNavigator,
 }, {
   headerMode: 'none',
 });

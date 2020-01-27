@@ -17,9 +17,9 @@
       "./node_modules/@types"
     ],
     "paths": {
-      "react-native-ui-kitten/*": ["../react-native-ui-kitten/src/framework"],
-      "@kitten/*": ["../react-native-ui-kitten/src/framework/*"],
-      "@eva-design/*": ["../eva/packages/*"]
+      "ui-kitten/*": ["../ui-kitten/react-native-ui-kitten/src/*"],
+      "@kitten/*": ["../ui-kitten/react-native-ui-kitten/src/components/*"],
+      "@eva-design/*": ["../ui-kitten/eva/packages/*"]
     }
   },
   "exclude": [

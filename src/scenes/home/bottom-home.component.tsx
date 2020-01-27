@@ -3,7 +3,7 @@ import {
   BottomNavigation,
   BottomNavigationTab,
   Divider,
-} from 'react-native-ui-kitten';
+} from '@ui-kitten/components';
 import {
   SafeAreaLayout,
   SafeAreaLayoutElement,
@@ -25,7 +25,6 @@ export const BottomHomeScreen = (props): SafeAreaLayoutElement => {
     <SafeAreaLayout insets={SaveAreaInset.BOTTOM}>
       <Divider/>
       <BottomNavigation
-        appearance='noIndicator'
         selectedIndex={props.navigation.state.index}
         onSelect={onSelect}>
         <BottomNavigationTab

@@ -8,7 +8,7 @@ import {
   Button,
   Layout,
   LayoutElement,
-} from 'react-native-ui-kitten';
+} from '@ui-kitten/components';
 import {
   Formik,
   FormikProps,

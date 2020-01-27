@@ -16,7 +16,7 @@ import {
   Select,
   SelectOption,
   SelectOptionType,
-} from 'react-native-ui-kitten';
+} from '@ui-kitten/components';
 import { AppRoute } from '../../navigation/app-routes';
 import { Toolbar } from '../../components/toolbar.component';
 import { FormInput } from '../../components/form-input.component';

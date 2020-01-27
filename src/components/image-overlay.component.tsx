@@ -11,7 +11,7 @@ import {
   ThemeType,
   withStyles,
   ThemedComponentProps,
-} from 'react-native-ui-kitten';
+} from '@ui-kitten/components';
 
 interface ImageOverlayStyle extends ViewStyle {
   overlayColor?: string;

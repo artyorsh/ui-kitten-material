@@ -7,7 +7,7 @@ import {
   Button,
   CheckBox,
   Layout,
-} from 'react-native-ui-kitten';
+} from '@ui-kitten/components';
 import {
   Formik,
   FormikProps,

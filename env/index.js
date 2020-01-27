@@ -3,11 +3,11 @@ const path = require('path');
 module.exports = {
   name: 'dev',
   uiKittenStructure: {
-    path: '../react-native-ui-kitten',
+    path: path.resolve(__dirname, '../../ui-kitten/react-native-ui-kitten'),
     modules: [
-      'src/framework',
+      'src/components',
     ]
   },
-  evaPath: path.resolve(__dirname, '../../eva/packages/eva'),
-  evaMaterialPath: path.resolve(__dirname, '../../eva/packages/material'),
+  evaPath: path.resolve(__dirname, '../../ui-kitten/eva/packages/eva'),
+  evaMaterialPath: path.resolve(__dirname, '../../ui-kitten/eva/packages/material'),
 };

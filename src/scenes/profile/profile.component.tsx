@@ -8,7 +8,7 @@ import {
   Divider,
   Layout,
   Text,
-} from 'react-native-ui-kitten';
+} from '@ui-kitten/components';
 import { Toolbar } from '../../components/toolbar.component';
 import {
   SafeAreaLayout,
@@ -31,17 +31,19 @@ export const ProfileScreen = (props): SafeAreaLayoutElement => (
     />
     <Divider/>
     <Layout style={styles.container}>
-      <View style={styles.profileContainer}>
-        <Avatar
-          style={styles.profileAvatar}
-          source={profile.avatar}
-        />
-        <Text
-          style={styles.profileName}
-          category='h4'>
-          {profile.fullname}
-        </Text>
-      </View>
+      <Text category='h1'>Heading 1</Text>
+      <Text category='h2'>Heading 2</Text>
+      <Text category='h3'>Heading 3</Text>
+      <Text category='h4'>Heading 4</Text>
+      <Text category='h5'>Heading 5</Text>
+      <Text category='h6'>Heading 6</Text>
+      <Text category='s1'>Subtitle 1</Text>
+      <Text category='s2'>Subtitle 2</Text>
+      <Text category='p1'>Paragraph 1</Text>
+      <Text category='p2'>Paragraph 2</Text>
+      <Text category='c1'>Caption 1</Text>
+      <Text category='c2'>Caption 2</Text>
+      <Text category='label'>Label</Text>
     </Layout>
   </SafeAreaLayout>
 );

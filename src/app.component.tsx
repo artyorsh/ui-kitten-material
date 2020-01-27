@@ -9,7 +9,7 @@ import {
 import {
   ApplicationProvider,
   IconRegistry,
-} from 'react-native-ui-kitten';
+} from '@ui-kitten/components';
 import { AppNavigator } from './navigation/app.navigator';
 import {
   AppTheme,
@@ -18,7 +18,7 @@ import {
 import { MaterialIconsPack } from './assets/material-icons-pack';
 
 const themes = { light, dark };
-const strictTheme = { 'text-font-family': 'Roboto-Medium' };
+const strictTheme = { 'text-font-family': 'Roboto-Regular' };
 const customMapping = { strict: strictTheme };
 
 export default (): React.ReactFragment => {

@@ -13,7 +13,7 @@ import {
   Text,
   Button,
   withStyles,
-} from 'react-native-ui-kitten';
+} from '@ui-kitten/components';
 import { AppRoute } from '../../navigation/app-routes';
 import { ProgressBar } from '../../components/progress-bar.component';
 import {

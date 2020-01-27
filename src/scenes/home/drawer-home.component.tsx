@@ -10,7 +10,7 @@ import {
   DrawerElement,
   MenuItemType,
   Text,
-} from 'react-native-ui-kitten';
+} from '@ui-kitten/components';
 import { AppRoute } from '../../navigation/app-routes';
 import {
   AppTheme,

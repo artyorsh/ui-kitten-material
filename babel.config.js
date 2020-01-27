@@ -9,8 +9,8 @@ const evaAlias = {
 };
 
 const uiKittenLocalAlias = {
-  '@kitten/theme': path.resolve(__dirname, env.uiKittenStructure.path, 'src/framework/theme'),
-  '@kitten/ui': path.resolve(__dirname, env.uiKittenStructure.path, 'src/framework/ui'),
+  '@kitten/theme': path.resolve(__dirname, env.uiKittenStructure.path, 'src/components/theme'),
+  '@kitten/ui': path.resolve(__dirname, env.uiKittenStructure.path, 'src/components/ui'),
 };
 
 const { root, alias } = monorepoResolver(env.uiKittenStructure);

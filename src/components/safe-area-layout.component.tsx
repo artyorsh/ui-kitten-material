@@ -10,9 +10,9 @@ import {
 import {
   Layout,
   LayoutElement,
-  LayoutProps,
+  LayoutProps, useTheme,
   withStyles,
-} from 'react-native-ui-kitten';
+} from '@ui-kitten/components';
 
 export enum SaveAreaInset {
   TOP = 'top',
@@ -27,10 +27,12 @@ interface SafeAreaLayoutProps extends LayoutProps {
 
 export type SafeAreaLayoutElement = React.ReactElement<SafeAreaLayoutProps>;
 
-const SafeAreaLayoutComponent = (props: SafeAreaLayoutProps): LayoutElement => {
+export const SafeAreaLayout = (props: SafeAreaLayoutProps): LayoutElement => {
   const safeAreaInsets: EdgeInsets = useSafeArea();
 
-  const { insets, style, theme, ...layoutProps } = props;
+  const { insets, style, ...layoutProps } = props;
+
+  const theme = useTheme();
 
   const toStyleProp = (inset: SaveAreaInset): ViewStyle => {
     switch (inset) {
@@ -53,11 +55,10 @@ const SafeAreaLayoutComponent = (props: SafeAreaLayoutProps): LayoutElement => {
 
   return (
     <Layout
+      level='1'
       {...layoutProps}
       style={[style, createInsets()]}
     />
   );
 };
-
-export const SafeAreaLayout = withStyles(SafeAreaLayoutComponent);
 

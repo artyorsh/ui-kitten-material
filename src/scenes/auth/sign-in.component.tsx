@@ -1,30 +1,14 @@
 import React from 'react';
-import {
-  StyleSheet,
-  View,
-} from 'react-native';
-import {
-  Button,
-  CheckBox,
-  Layout,
-} from '@ui-kitten/components';
-import {
-  Formik,
-  FormikProps,
-} from 'formik';
+import { StyleSheet, View } from 'react-native';
+import { Button, CheckBox, Layout } from '@ui-kitten/components';
+import { Formik, FormikProps } from 'formik';
 import { AppRoute } from '../../navigation/app-routes';
 import { FormInput } from '../../components/form-input.component';
 import { ImageOverlay } from '../../components/image-overlay.component';
-import {
-  EyeIcon,
-  EyeOffIcon,
-} from '../../assets/icons';
-import {
-  SignInData,
-  SignInSchema,
-} from '../../data/sign-in.model';
+import { EyeIcon, EyeOffIcon } from '../../assets/icons';
+import { SignInData, SignInSchema } from '../../data/sign-in.model';
 
-export const SignInScreen = (props) => {
+export const SignInScreen = ({ navigation }): React.ReactElement => {
 
   const [shouldRemember, setShouldRemember] = React.useState<boolean>(false);
   const [passwordVisible, setPasswordVisible] = React.useState<boolean>(false);
@@ -34,15 +18,15 @@ export const SignInScreen = (props) => {
   };
 
   const navigateHome = (): void => {
-    props.navigation.navigate(AppRoute.HOME);
+    navigation.navigate(AppRoute.HOME);
   };
 
   const navigateSignUp = (): void => {
-    props.navigation.navigate(AppRoute.SIGN_UP);
+    navigation.navigate(AppRoute.SIGN_UP);
   };
 
   const navigateResetPassword = (): void => {
-    props.navigation.navigate(AppRoute.RESET_PASSWORD);
+    navigation.navigate(AppRoute.RESET_PASSWORD);
   };
 
   const onRememberMeChange = (shouldRemember: boolean): void => {

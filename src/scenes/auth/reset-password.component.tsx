@@ -1,28 +1,15 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import {
-  EdgeInsets,
-  useSafeArea,
-} from 'react-native-safe-area-context';
-import {
-  Button,
-  Layout,
-  LayoutElement,
-} from '@ui-kitten/components';
-import {
-  Formik,
-  FormikProps,
-} from 'formik';
+import { EdgeInsets, useSafeArea } from 'react-native-safe-area-context';
+import { Button, Layout } from '@ui-kitten/components';
+import { Formik, FormikProps } from 'formik';
 import { AppRoute } from '../../navigation/app-routes';
 import { FormInput } from '../../components/form-input.component';
 import { Toolbar } from '../../components/toolbar.component';
 import { ImageOverlay } from '../../components/image-overlay.component';
-import {
-  ResetPasswordData,
-  ResetPasswordSchema,
-} from '../../data/reset-password.model';
+import { ResetPasswordData, ResetPasswordSchema } from '../../data/reset-password.model';
 
-export const ResetPasswordScreen = (props): LayoutElement => {
+export const ResetPasswordScreen = ({ navigation }): React.ReactElement => {
 
   const insets: EdgeInsets = useSafeArea();
 
@@ -31,7 +18,7 @@ export const ResetPasswordScreen = (props): LayoutElement => {
   };
 
   const navigateSignIn = (): void => {
-    props.navigation.navigate(AppRoute.SIGN_IN);
+    navigation.navigate(AppRoute.SIGN_IN);
   };
 
   const renderForm = (props: FormikProps<ResetPasswordData>): React.ReactFragment => (
@@ -58,7 +45,7 @@ export const ResetPasswordScreen = (props): LayoutElement => {
         source={require('../../assets/images/image-background.jpeg')}>
         <Toolbar
           appearance='control'
-          onBackPress={() => props.navigation.goBack()}
+          onBackPress={() => navigation.goBack()}
         />
       </ImageOverlay>
       <Layout style={styles.formContainer}>

@@ -25,6 +25,7 @@ export const BottomHomeScreen = (props): SafeAreaLayoutElement => {
     <SafeAreaLayout insets={SaveAreaInset.BOTTOM}>
       <Divider/>
       <BottomNavigation
+        appearance='noIndicator'
         selectedIndex={props.navigation.state.index}
         onSelect={onSelect}>
         <BottomNavigationTab
@@ -33,7 +34,7 @@ export const BottomHomeScreen = (props): SafeAreaLayoutElement => {
         />
         <BottomNavigationTab
           icon={PersonIcon}
-          title='PROFILE'
+          title='SETTINGS'
         />
       </BottomNavigation>
     </SafeAreaLayout>

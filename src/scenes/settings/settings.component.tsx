@@ -1,33 +1,18 @@
 import React from 'react';
-import {
-  StyleSheet,
-  View,
-} from 'react-native';
-import {
-  Avatar,
-  Divider,
-  Layout,
-  Text,
-} from '@ui-kitten/components';
+import { StyleSheet } from 'react-native';
+import { Divider, Layout, Text } from '@ui-kitten/components';
 import { Toolbar } from '../../components/toolbar.component';
-import {
-  SafeAreaLayout,
-  SafeAreaLayoutElement,
-  SaveAreaInset,
-} from '../../components/safe-area-layout.component';
+import { SafeAreaLayout, SaveAreaInset } from '../../components/safe-area-layout.component';
 import { MenuIcon } from '../../assets/icons';
-import { ProfileData } from '../../data/profile.model';
 
-const profile: ProfileData = ProfileData.mocked();
-
-export const ProfileScreen = (props): SafeAreaLayoutElement => (
+export const SettingsScreen = ({ navigation }): React.ReactElement => (
   <SafeAreaLayout
     style={styles.safeArea}
     insets={SaveAreaInset.TOP}>
     <Toolbar
       title='Material App'
       backIcon={MenuIcon}
-      onBackPress={props.navigation.toggleDrawer}
+      onBackPress={navigation.toggleDrawer}
     />
     <Divider/>
     <Layout style={styles.container}>

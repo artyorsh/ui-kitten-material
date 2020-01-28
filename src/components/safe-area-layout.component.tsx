@@ -1,18 +1,7 @@
 import React from 'react';
-import {
-  StyleProp,
-  ViewStyle,
-} from 'react-native';
-import {
-  EdgeInsets,
-  useSafeArea,
-} from 'react-native-safe-area-context';
-import {
-  Layout,
-  LayoutElement,
-  LayoutProps, useTheme,
-  withStyles,
-} from '@ui-kitten/components';
+import { StyleProp, ViewStyle } from 'react-native';
+import { EdgeInsets, useSafeArea } from 'react-native-safe-area-context';
+import { Layout, LayoutElement, LayoutProps, useTheme } from '@ui-kitten/components';
 
 export enum SaveAreaInset {
   TOP = 'top',

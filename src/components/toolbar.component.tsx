@@ -9,10 +9,7 @@ import {
   TopNavigationActionElement,
   TopNavigationProps,
 } from '@ui-kitten/components';
-import {
-  BackIcon,
-  MoreVerticalIcon,
-} from '../assets/icons';
+import { BackIcon, MoreVerticalIcon } from '../assets/icons';
 
 export type ToolbarMenu = OverflowMenuItemType[];
 
@@ -60,12 +57,10 @@ export const Toolbar = (props: ToolbarProps): TopNavigationActionElement => {
   );
 
   return (
-    <React.Fragment>
-      <TopNavigation
-        {...topNavigationProps}
-        leftControl={onBackPress && renderBackAction()}
-        rightControls={menu && renderMenuAction(menu)}
-      />
-    </React.Fragment>
+    <TopNavigation
+      {...topNavigationProps}
+      leftControl={onBackPress && renderBackAction()}
+      rightControls={menu && renderMenuAction(menu)}
+    />
   );
 };

@@ -7,47 +7,32 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
-import {
-  ThemeType,
-  withStyles,
-  ThemedComponentProps,
-} from '@ui-kitten/components';
+import { useTheme } from '@ui-kitten/components';
 
-interface ImageOverlayStyle extends ViewStyle {
+interface OverlayImageStyle extends ViewStyle {
   overlayColor?: string;
 }
 
-type Override<T, U> = Omit<T, keyof U> & U;
-
-type ImageOverlayProps = ThemedComponentProps & Override<ImageBackgroundProps, {
-  style: StyleProp<ImageOverlayStyle>;
-}>;
-
-export type ImageOverlayElement = React.ReactElement<ImageOverlayProps>;
-
-class ImageOverlayComponent extends React.Component<ImageOverlayProps> {
-
-  private getOverlayColor = (source: string | undefined): string => {
-    return source || this.props.theme['color-primary-transparent-400'];
-  };
-
-  public render(): React.ReactElement<ImageBackgroundProps> {
-    const { style, children, ...restProps } = this.props;
-    const { overlayColor: derivedOverlayColor, ...containerStyle } = StyleSheet.flatten(style);
-
-    const overlayColor: string = this.getOverlayColor(derivedOverlayColor);
-
-    return (
-      <ImageBackground
-        style={containerStyle}
-        {...restProps}>
-        <View style={[this.props.themedStyle.overlay, { backgroundColor: overlayColor }]}/>
-        {children}
-      </ImageBackground>
-    );
-  }
+export interface ImageOverlayProps extends ImageBackgroundProps {
+  style?: StyleProp<OverlayImageStyle>;
+  children?: React.ReactNode;
 }
 
-export const ImageOverlay = withStyles(ImageOverlayComponent, (theme: ThemeType) => ({
-  overlay: StyleSheet.absoluteFillObject,
-}));
+export const ImageOverlay = (props: ImageOverlayProps): React.ReactElement => {
+
+  const theme = useTheme();
+  const { style, children, ...imageBackgroundProps } = props;
+  const { overlayColor, ...imageBackgroundStyle } = StyleSheet.flatten(style);
+
+  return (
+    <ImageBackground
+      {...imageBackgroundProps}
+      style={imageBackgroundStyle}>
+      <View style={[
+        StyleSheet.absoluteFill,
+        { backgroundColor: overlayColor || theme['color-primary-transparent-400'] },
+      ]}/>
+      {children}
+    </ImageBackground>
+  );
+};

@@ -1,31 +1,30 @@
 import React from 'react';
-import {
-  View,
-  ViewProps,
-} from 'react-native';
-import {
-  Text,
-  ThemedComponentProps,
-  withStyles,
-} from '@ui-kitten/components';
+import { View, ViewProps } from 'react-native';
+import { StyleService, Text, useStyleSheet } from '@ui-kitten/components';
 
-export interface ProgressBarProps extends ViewProps, ThemedComponentProps {
+export interface ProgressBarProps extends ViewProps {
   progress: number;
   text?: string;
 }
 
-const ProgressBarComponent = ({ progress, text, ...props }: ProgressBarProps): React.ReactElement<ViewProps> => (
-  <View style={props.themedStyle.container}>
-    <View
-      {...props}
-      style={[props.themedStyle.progressContainer, props.style]}>
-      <View style={[props.themedStyle.progress, { width: `${progress}%` }]}/>
-    </View>
-    {text && <Text style={props.themedStyle.text} appearance='hint' category='c2'>{text}</Text>}
-  </View>
-);
+export const ProgressBar = (props: ProgressBarProps): React.ReactElement => {
 
-export const ProgressBar = withStyles(ProgressBarComponent, (theme) => ({
+  const styles = useStyleSheet(themedStyles);
+  const { progress, text, ...viewProps } = props;
+
+  return (
+    <View style={styles.container}>
+      <View
+        {...viewProps}
+        style={[styles.progressContainer, props.style]}>
+        <View style={[styles.progress, { width: `${progress}%` }]}/>
+      </View>
+      {text && <Text style={styles.text} appearance='hint' category='c2'>{text}</Text>}
+    </View>
+  );
+};
+
+const themedStyles = StyleService.create({
   container: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -33,15 +32,15 @@ export const ProgressBar = withStyles(ProgressBarComponent, (theme) => ({
   progressContainer: {
     height: 8,
     borderRadius: 4,
-    backgroundColor: theme['background-basic-color-2'],
+    backgroundColor: 'background-basic-color-2',
     overflow: 'hidden',
   },
   progress: {
     flex: 1,
-    backgroundColor: theme['color-primary-default'],
+    backgroundColor: 'color-primary-default',
   },
   text: {
     marginHorizontal: 16,
   },
-}));
+});
 

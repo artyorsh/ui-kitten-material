@@ -1,13 +1,7 @@
 import React from 'react';
-import {
-  createStackNavigator,
-} from 'react-navigation-stack';
+import { createStackNavigator } from 'react-navigation-stack';
 import { AppRoute } from './app-routes';
-import {
-  SignInScreen,
-  SignUpScreen,
-  ResetPasswordScreen,
-} from '../scenes/auth';
+import { ResetPasswordScreen, SignInScreen, SignUpScreen } from '../scenes/auth';
 
 export const AuthNavigator = createStackNavigator({
   [AppRoute.SIGN_IN]: SignInScreen,

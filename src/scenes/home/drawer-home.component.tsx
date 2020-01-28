@@ -1,29 +1,11 @@
 import React from 'react';
-import {
-  ImageBackgroundProps,
-  StyleSheet,
-  View,
-} from 'react-native';
-import {
-  Avatar,
-  Drawer,
-  DrawerElement,
-  MenuItemType,
-  Text,
-} from '@ui-kitten/components';
+import { StyleSheet, View } from 'react-native';
+import { Avatar, Drawer, MenuItemType, Text } from '@ui-kitten/components';
 import { AppRoute } from '../../navigation/app-routes';
-import {
-  AppTheme,
-  ThemeContext,
-} from '../../theme/theme-context';
+import { AppTheme, ThemeContext } from '../../theme/theme-context';
 import { ImageOverlay } from '../../components/image-overlay.component';
-import {
-  HomeIcon,
-  InfoIcon,
-  LogoutIcon,
-  PaletteIcon,
-} from '../../assets/icons';
-import { ProfileData } from "../../data/profile.model";
+import { HomeIcon, InfoIcon, LogoutIcon, PaletteIcon } from '../../assets/icons';
+import { ProfileData } from '../../data/profile.model';
 
 const drawerData: MenuItemType[] = [
   {
@@ -46,7 +28,7 @@ const drawerData: MenuItemType[] = [
 
 const profile: ProfileData = ProfileData.mocked();
 
-const DrawerHeader = (): React.ReactElement<ImageBackgroundProps> => (
+const DrawerHeader = (): React.ReactElement => (
   <ImageOverlay
     style={styles.header}
     source={require('../../assets/images/image-background.jpeg')}>
@@ -65,7 +47,7 @@ const DrawerHeader = (): React.ReactElement<ImageBackgroundProps> => (
   </ImageOverlay>
 );
 
-export const DrawerHomeScreen = (props): DrawerElement => {
+export const DrawerHomeScreen = ({ navigation }): React.ReactElement => {
 
   const themeContext = React.useContext(ThemeContext);
 
@@ -74,17 +56,17 @@ export const DrawerHomeScreen = (props): DrawerElement => {
 
     switch (selectedItem.title) {
       case 'Log Out':
-        props.navigation.navigate(AppRoute.AUTH);
+        navigation.navigate(AppRoute.AUTH);
         break;
       case 'Switch Theme':
         switchTheme();
         break;
       default:
-        props.navigation.navigate(selectedItem.title);
+        navigation.navigate(selectedItem.title);
         break;
     }
 
-    props.navigation.closeDrawer();
+    navigation.closeDrawer();
   };
 
   const switchTheme = (): void => {

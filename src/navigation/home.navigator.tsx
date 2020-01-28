@@ -2,7 +2,7 @@ import React from 'react';
 import { createDrawerNavigator } from 'react-navigation-drawer';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { TodoNavigator } from './todo.navigator';
-import { ProfileNavigator } from './profile.navigator';
+import { SettingsNavigator } from './settings.navigator';
 import { AppRoute } from './app-routes';
 import {
   BottomHomeScreen,
@@ -12,7 +12,7 @@ import {
 
 const HomeBottomNavigator = createBottomTabNavigator({
   [AppRoute.TODO]: TodoNavigator,
-  [AppRoute.PROFILE]: ProfileNavigator,
+  [AppRoute.PROFILE]: SettingsNavigator,
 }, {
   tabBarComponent: BottomHomeScreen,
 });

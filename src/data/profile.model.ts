@@ -1,16 +1,16 @@
 import { ImageSourcePropType } from 'react-native';
 
 export class ProfileData {
-
-  get fullname(): string {
-    return `${this.firstname} ${this.lastname}`;
-  }
-
+  
   constructor(
     readonly firstname: string,
     readonly lastname: string,
     readonly avatar: ImageSourcePropType) {
 
+  }
+
+  get fullname(): string {
+    return `${this.firstname} ${this.lastname}`;
   }
 
   static empty(): ProfileData {

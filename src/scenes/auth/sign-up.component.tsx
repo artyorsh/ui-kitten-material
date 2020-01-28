@@ -1,18 +1,11 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import {
-  EdgeInsets,
-  useSafeArea,
-} from 'react-native-safe-area-context';
-import {
-  Formik,
-  FormikProps,
-} from 'formik';
+import { EdgeInsets, useSafeArea } from 'react-native-safe-area-context';
+import { Formik, FormikProps } from 'formik';
 import {
   Button,
   CheckBox,
   Layout,
-  LayoutElement,
   Select,
   SelectOption,
   SelectOptionType,
@@ -21,12 +14,9 @@ import { AppRoute } from '../../navigation/app-routes';
 import { Toolbar } from '../../components/toolbar.component';
 import { FormInput } from '../../components/form-input.component';
 import { ImageOverlay } from '../../components/image-overlay.component';
-import {
-  SignUpData,
-  SignUpSchema,
-} from '../../data/sign-up.model';
+import { SignUpData, SignUpSchema } from '../../data/sign-up.model';
 
-export const SignUpScreen = (props): LayoutElement => {
+export const SignUpScreen = ({ navigation }): React.ReactElement => {
 
   const insets: EdgeInsets = useSafeArea();
   const [selectedRole, setSelectedRole] = React.useState<SelectOptionType>(null);
@@ -46,11 +36,11 @@ export const SignUpScreen = (props): LayoutElement => {
   };
 
   const navigateHome = (): void => {
-    props.navigation.navigate(AppRoute.HOME);
+    navigation.navigate(AppRoute.HOME);
   };
 
   const navigateSignIn = (): void => {
-    props.navigation.navigate(AppRoute.SIGN_IN);
+    navigation.navigate(AppRoute.SIGN_IN);
   };
 
   const toSelectOption = (role: string): SelectOptionType => ({
@@ -105,7 +95,7 @@ export const SignUpScreen = (props): LayoutElement => {
         source={require('../../assets/images/image-background.jpeg')}>
         <Toolbar
           appearance='control'
-          onBackPress={() => props.navigation.goBack()}
+          onBackPress={() => navigation.goBack()}
         />
       </ImageOverlay>
       <Layout style={styles.formContainer}>

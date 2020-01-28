@@ -1,33 +1,16 @@
 import React from 'react';
-import {
-  Divider,
-  Tab,
-  TabBar,
-} from '@ui-kitten/components';
+import { Divider, Tab, TabBar } from '@ui-kitten/components';
 import { AppRoute } from '../../navigation/app-routes';
-import {
-  SafeAreaLayout,
-  SafeAreaLayoutElement,
-  SaveAreaInset,
-} from '../../components/safe-area-layout.component';
-import {
-  Toolbar,
-  ToolbarMenu,
-} from '../../components/toolbar.component';
-import {
-  DoneAllIcon,
-  GridIcon,
-  InfoIcon,
-  LogoutIcon,
-  MenuIcon,
-} from '../../assets/icons';
+import { SafeAreaLayout, SaveAreaInset } from '../../components/safe-area-layout.component';
+import { Toolbar, ToolbarMenu } from '../../components/toolbar.component';
+import { DoneAllIcon, GridIcon, InfoIcon, LogoutIcon, MenuIcon } from '../../assets/icons';
 
-export const TodoScreen = (props): SafeAreaLayoutElement => {
+const menu: ToolbarMenu = [
+  { title: 'About', icon: InfoIcon },
+  { title: 'Log Out', icon: LogoutIcon },
+];
 
-  const menu: ToolbarMenu = [
-    { title: 'About', icon: InfoIcon },
-    { title: 'Log Out', icon: LogoutIcon },
-  ];
+export const TodoScreen = (props): React.ReactElement => {
 
   const onMenuItemSelect = (index: number): void => {
     const { [index]: selectedItem } = menu;

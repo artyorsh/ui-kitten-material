@@ -1,25 +1,15 @@
 import React from 'react';
-import {
-  Platform,
-  StyleSheet,
-} from 'react-native';
-import {
-  Input,
-  InputElement,
-  InputProps,
-} from '@ui-kitten/components';
-import {
-  FormikContextType,
-  useFormikContext,
-} from 'formik';
+import { FormikContextType, useFormikContext } from 'formik';
+import { Input, InputElement, InputProps } from '@ui-kitten/components';
 import { AlertTriangleIcon } from '../assets/icons';
 
-interface FormInputProps extends InputProps {
+export interface FormInputProps extends InputProps {
   id: string;
 }
 
-export const FormInput = ({ id, textStyle, ...inputProps }: FormInputProps): InputElement => {
+export const FormInput = (props: FormInputProps): InputElement => {
 
+  const { id, ...inputProps } = props;
   const formContext: FormikContextType<{}> = useFormikContext();
 
   // @ts-ignore
@@ -34,17 +24,9 @@ export const FormInput = ({ id, textStyle, ...inputProps }: FormInputProps): Inp
     <Input
       {...inputProps}
       {...fieldProps}
-      textStyle={[textStyle, styles.element]}
       caption={error}
       onChangeText={formContext.handleChange(id)}
     />
   );
 };
-
-const styles = StyleSheet.create({
-  element: Platform.select({
-    ios: null,
-    android: { paddingVertical: 0 },
-  })
-});
 

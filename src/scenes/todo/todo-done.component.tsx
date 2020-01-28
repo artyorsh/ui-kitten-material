@@ -1,22 +1,27 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import {
-  Button,
-  Layout,
-  LayoutElement,
-  Text,
-} from '@ui-kitten/components';
+import { Button, Layout, Text } from '@ui-kitten/components';
+import { AppRoute } from '../../navigation/app-routes';
 
-export const TodoDoneScreen = (props): LayoutElement => (
-  <Layout style={styles.container}>
-    <Text category='h6'>
-      No done todos yet.
-    </Text>
-    <Button style={styles.addButton}>
-      ADD TODO
-    </Button>
-  </Layout>
-);
+export const TodoDoneScreen = (props): React.ReactElement => {
+
+  const onAddTodoButtonPress = (): void => {
+    props.navigation.navigate(AppRoute.TODO_IN_PROGRESS);
+  };
+
+  return (
+    <Layout style={styles.container}>
+      <Text category='h6'>
+        No done todos yet.
+      </Text>
+      <Button
+        style={styles.addButton}
+        onPress={onAddTodoButtonPress}>
+        ADD TODO
+      </Button>
+    </Layout>
+  );
+};
 
 const styles = StyleSheet.create({
   safeArea: {

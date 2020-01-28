@@ -1,18 +1,7 @@
 import React from 'react';
-import {
-  StyleSheet,
-  View,
-} from 'react-native';
-import {
-  Button,
-  Layout,
-  LayoutElement,
-  Text,
-} from '@ui-kitten/components';
-import {
-  EdgeInsets,
-  useSafeArea,
-} from 'react-native-safe-area-context';
+import { StyleSheet, View } from 'react-native';
+import { Button, Layout, Text } from '@ui-kitten/components';
+import { EdgeInsets, useSafeArea } from 'react-native-safe-area-context';
 import { Toolbar } from '../../components/toolbar.component';
 import { ImageOverlay } from '../../components/image-overlay.component';
 import { ProgressBar } from '../../components/progress-bar.component';
@@ -22,7 +11,7 @@ export interface TodoDetailsRouteParams {
   todo: Todo;
 }
 
-export const TodoDetailsScreen = (props): LayoutElement => {
+export const TodoDetailsScreen = (props): React.ReactElement => {
 
   const todo: Todo = props.navigation.getParam('todo');
   const insets: EdgeInsets = useSafeArea();
@@ -43,7 +32,7 @@ export const TodoDetailsScreen = (props): LayoutElement => {
           {todo.title}
         </Text>
       </ImageOverlay>
-      <Layout style={styles.container}>
+      <Layout style={styles.container} level='1'>
         <View style={styles.detailsContainer}>
           <ProgressBar
             style={styles.progressBar}

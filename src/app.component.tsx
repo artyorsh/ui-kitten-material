@@ -1,27 +1,17 @@
 import React from 'react';
 import { StatusBar } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import {
-  dark,
-  light,
-  mapping,
-} from '@eva-design/material';
-import {
-  ApplicationProvider,
-  IconRegistry,
-} from '@ui-kitten/components';
+import { dark, light, mapping } from '@eva-design/material';
+import { ApplicationProvider, IconRegistry } from '@ui-kitten/components';
 import { AppNavigator } from './navigation/app.navigator';
-import {
-  AppTheme,
-  ThemeContext,
-} from './theme/theme-context';
+import { AppTheme, ThemeContext } from './theme/theme-context';
 import { MaterialIconsPack } from './assets/material-icons-pack';
 
 const themes = { light, dark };
 const strictTheme = { 'text-font-family': 'Roboto-Regular' };
 const customMapping = { strict: strictTheme };
 
-export default (): React.ReactFragment => {
+export default (): React.ReactElement => {
 
   const [theme, setTheme] = React.useState<AppTheme>(AppTheme.light);
   const { [theme]: currentTheme } = themes;
@@ -39,7 +29,7 @@ export default (): React.ReactFragment => {
         customMapping={customMapping}>
         <SafeAreaProvider>
           <ThemeContext.Provider value={{ theme, setTheme, isDarkMode }}>
-            <StatusBar backgroundColor={currentTheme['color-primary-700']} />
+            <StatusBar backgroundColor={currentTheme['color-primary-700']}/>
             <AppNavigator/>
           </ThemeContext.Provider>
         </SafeAreaProvider>

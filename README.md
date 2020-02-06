@@ -1,14 +1,17 @@
-# Demo App running Eva Design - Material
+# Demo App running Eva Design - Material and UI Kitten
+
+[<img src="https://i.imgur.com/X8O4GHb.png">](https://github.com/akveo/react-native-ui-kitten)
 
 ## How to run
 
-- Setup the environment in same way it is described in [UI Kitten docs](https://github.com/akveo/react-native-ui-kitten/blob/master/DEV_DOCS.md#start-a-playground). You may need **Development** environment.
-- Go to the `eva` directory and switch branch to `package/material`:
-```bash
-git checkout package/material
-```
-- Go to `react-native-ui-kitten` directory and switch branch to `refactor/eva-state-colors` (this should be done untill UI Kitten 4.3 released - [status](https://github.com/akveo/react-native-ui-kitten/pull/728)):
-```bash
-git checkout refactor/eva-state-colors
-```
-- `npm start`
+Currently, this project is runnable only in development mode.
+Before running, please follow [dev config](./env/env.dev.js) instructions to make it runnable :]
+
+After environment is configured:
+
+- `yarn` to install dependencies
+- `cd ios && pod install && cd ..` to install iOS dependencies
+- `yarn start:dev` to start Metro Bundler
+- `npx react-native run-ios` to run on iPhone simulator
+
+Easy!

@@ -43,6 +43,7 @@ export const SignInScreen = ({ navigation }): React.ReactElement => {
         id='email'
         style={styles.formControl}
         label='Email'
+        placeholder='alice.cooper@gmail.com'
         keyboardType='email-address'
         autoCapitalize='none'
       />
@@ -50,6 +51,7 @@ export const SignInScreen = ({ navigation }): React.ReactElement => {
         id='password'
         style={styles.formControl}
         label='Password'
+        placeholder='********'
         secureTextEntry={!passwordVisible}
         icon={passwordVisible ? EyeIcon : EyeOffIcon}
         onIconPress={onPasswordIconPress}
@@ -82,7 +84,9 @@ export const SignInScreen = ({ navigation }): React.ReactElement => {
         style={styles.appBar}
         source={require('../../assets/images/image-background.jpeg')}
       />
-      <Layout style={styles.formContainer}>
+      <Layout
+        style={styles.formContainer}
+        level='1'>
         <Formik
           initialValues={SignInData.empty()}
           validationSchema={SignInSchema}

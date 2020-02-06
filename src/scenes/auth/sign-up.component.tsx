@@ -53,23 +53,26 @@ export const SignUpScreen = ({ navigation }): React.ReactElement => {
         id='email'
         style={styles.formControl}
         label='Email'
+        placeholder='alice.cooper@gmail.com'
         keyboardType='email-address'
         autoCapitalize='none'
       />
       <FormInput
         id='firstname'
         style={styles.formControl}
+        placeholder='Alice'
         label='First Name'
       />
       <FormInput
         id='lastname'
         style={styles.formControl}
         label='Last Name'
+        placeholder='Cooper'
       />
       <Select
         style={styles.formControl}
         label='Role on project'
-        placeholder=''
+        placeholder='Select Role'
         data={['Developer', 'Designer', 'Product Manager'].map(toSelectOption)}
         selectedOption={selectedRole}
         onSelect={onRoleChange}
@@ -98,7 +101,9 @@ export const SignUpScreen = ({ navigation }): React.ReactElement => {
           onBackPress={() => navigation.goBack()}
         />
       </ImageOverlay>
-      <Layout style={styles.formContainer}>
+      <Layout
+        style={styles.formContainer}
+        level='1'>
         <Formik
           initialValues={SignUpData.empty()}
           validationSchema={SignUpSchema}

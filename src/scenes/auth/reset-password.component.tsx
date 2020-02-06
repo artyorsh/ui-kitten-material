@@ -27,6 +27,7 @@ export const ResetPasswordScreen = ({ navigation }): React.ReactElement => {
         id='email'
         style={styles.formControl}
         label='Email'
+        placeholder='alice.cooper@gmail.com'
         keyboardType='email-address'
         autoCapitalize='none'
       />
@@ -48,7 +49,9 @@ export const ResetPasswordScreen = ({ navigation }): React.ReactElement => {
           onBackPress={() => navigation.goBack()}
         />
       </ImageOverlay>
-      <Layout style={styles.formContainer}>
+      <Layout
+        style={styles.formContainer}
+        level='1'>
         <Formik
           initialValues={ResetPasswordData.empty()}
           validationSchema={ResetPasswordSchema}
